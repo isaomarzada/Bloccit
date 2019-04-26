@@ -5,11 +5,9 @@ const sequelize = require("../../src/db/models/index").sequelize;
 const Topic = require("../../src/db/models").Topic;
 
  describe("routes : topics", () => {
-
     beforeEach((done) => {
       this.topic;
       sequelize.sync({force: true}).then((res) => {
-
        Topic.create({
          title: "JS Frameworks",
          description: "There is a lot of them"
@@ -22,27 +20,11 @@ const Topic = require("../../src/db/models").Topic;
           console.log(err);
           done();
         });
-
       });
-
     });
 
   describe("GET /topics", () => {
-
-    describe("GET /topics/new", () => {
-
-    it("should render a new topic form", (done) => {
-      request.get(`${base}new`, (err, res, body) => {
-        expect(err).toBeNull();
-        expect(body).toContain("New Topic");
-        done();
-      });
-    });
-
-  });
     it("should return a status code 200 and all topics", (done) => {
-
-
        request.get(base, (err, res, body) => {
          expect(res.statusCode).toBe(200);
          expect(err).toBeNull();
@@ -53,7 +35,18 @@ const Topic = require("../../src/db/models").Topic;
      });
    });
 
-  });
+   describe("GET /topics/new", () => {
+
+   it("should render a new topic form", (done) => {
+     request.get(`${base}new`, (err, res, body) => {
+       expect(err).toBeNull();
+       expect(body).toContain("New Topic");
+       done();
+     });
+   });
+
+   });
+
   describe("POST /topics/create", () => {
       const options = {
         url: `${base}create`,
@@ -156,3 +149,5 @@ const Topic = require("../../src/db/models").Topic;
      });
 
    });
+
+});
