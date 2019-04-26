@@ -29,6 +29,7 @@ module.exports = {
           model: "Topics",
           key: "id",
           as: "topicId",
+        }, }
     });
   },
   down: (queryInterface, Sequelize) => {
