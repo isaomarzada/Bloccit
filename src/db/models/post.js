@@ -10,7 +10,6 @@ module.exports = (sequelize, DataTypes) => {
            allowNull: false
          },
 
-    //#2
          topicId: {
            type: DataTypes.INTEGER,
            allowNull: false
@@ -21,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
          foreignKey: "topicId",
          onDelete: "CASCADE"
        });
+       Post.hasMany(models.Flair, {
+			     foreignKey: 'postId',
+			     as: 'flairs',
+		});
   };
   return Post;
 };
