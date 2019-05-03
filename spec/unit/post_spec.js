@@ -71,7 +71,6 @@ it("should create a post object with a title, body, and assigned topic and user"
        done();
      })
      .catch((err) => {
-
        expect(err.message).toContain("Post.body cannot be null");
        expect(err.message).toContain("Post.topicId cannot be null");
        done();
