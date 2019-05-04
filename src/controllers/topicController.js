@@ -70,7 +70,7 @@ module.exports = {
          res.redirect(303, "/topics")
        }
      });
-   }
+   },
    edit(req, res, next){
 
  // #1
