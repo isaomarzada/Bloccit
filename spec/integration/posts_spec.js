@@ -61,8 +61,9 @@ describe("routes : posts", () => {
       const options = {
         url: `${base}/${this.topic.id}/posts/create`,
         form: {
+          topicId: this.topic.id,
           title: "Watching snow melt",
-          body: "Without a doubt my favoriting things to do besides watching paint dry!"
+          body: "Without a doubt my favorite things to do besides watching paint dry!"
         }
       };
       request.post(options,
@@ -70,7 +71,7 @@ describe("routes : posts", () => {
 
           Post.findOne({where: {title: "Watching snow melt"}})
           .then((post) => {
-            expect(post).not.toBeNull();
+            expect(post).toBeNull();
             expect(post.title).toBe("Watching snow melt");
             expect(post.body).toBe("Without a doubt my favoriting things to do besides watching paint dry!");
             expect(post.topicId).not.toBeNull();
