@@ -31,6 +31,7 @@ module.exports = {
 
   // #2
       if(authorized) {
+        console.log("topicController#create IS AUTHORIZED!");
         let newTopic = {
           title: req.body.title,
           description: req.body.description
@@ -43,7 +44,7 @@ module.exports = {
           }
         });
       } else {
-
+console.log("topicController#create IS NOT AUTHORIZED!");
   // #3
         req.flash("notice", "You are not authorized to do that.");
         res.redirect("/topics");

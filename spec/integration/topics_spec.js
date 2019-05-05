@@ -158,11 +158,8 @@ const User = require("../../src/db/models").User;
 
        Topic.all()
        .then((topics) => {
-
          const topicCountBeforeDelete = topics.length;
-
          expect(topicCountBeforeDelete).toBe(1);
-
          request.post(`${base}${this.topic.id}/destroy`, (err, res, body) => {
            Topic.all()
            .then((topics) => {
