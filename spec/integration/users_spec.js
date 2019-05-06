@@ -38,7 +38,6 @@ describe("routes : users", () => {
       const options = {
         url: base,
         form: {
-          email: this.email,
           email: "user@example.com",
           password: "123456789"
         }
