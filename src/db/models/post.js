@@ -42,6 +42,12 @@ Post.hasMany(models.Vote, {
     as: "votes"
    });
   };
+  Post.afterCreate((post, callback) => {
+    return models.Favorite.create({
+      userId: post.userId,
+      postId: post.id
+    });
+  });
   Post.prototype.getPoints = function(){
      if(this.votes.length === 0) return 0
      return this.votes
